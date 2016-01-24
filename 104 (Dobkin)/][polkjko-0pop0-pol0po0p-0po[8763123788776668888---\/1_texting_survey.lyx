@@ -1,0 +1,426 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{dcolumn}
+\usepackage{rotating}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Texting During Class and GPA
+\end_layout
+
+\begin_layout Author
+Alena McLucas
+\end_layout
+
+\begin_layout Date
+September 30th, 2015
+\end_layout
+
+\begin_layout Abstract
+This is my first time merging RStudio and LyX together to test my ability
+ to perform basic econometric functions in R and format the results and
+ proceeding analysis at a competitve level.
+\end_layout
+
+\begin_layout Abstract
+I will be using this for the remainder of my Econ 104 work and perhaps more
+ for converting my TIM work into something more comprehensive.
+ Note I like using sections and subsections.
+ One issue I see is that paragraphs are bold...
+ Also the separator doesen't do anything.
+ Labeling is for one word terms.
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+The data set contains 3 variables and 61 observations.
+ The first binary variable 
+\emph on
+Male
+\emph default
+ is 1 if the subject is male or 0 indicating female.
+ 
+\emph on
+Texts_class
+\emph default
+ is the number of times a person sends a text during a given class.
+ Lastly, 
+\emph on
+GPA 
+\emph default
+is the student's grade point average.
+\end_layout
+
+\begin_layout Section
+Read Data into R
+\end_layout
+
+\begin_layout Standard
+To perform regressions in R, one must first read in data from a given file.
+ File 
+\emph on
+testing_survey.csv
+\emph default
+ is read in based on the file path on my local hard drive.
+ The .csv file is saved as 
+\emph on
+texting
+\emph default
+.
+ The code also tells R the headers are saved in the csv file and will be
+ kept as variables for later use.
+ It also explains that the .csv file uses commas to separate values so it
+ knows where each data point begins and ends.
+\end_layout
+
+\begin_layout Standard
+Attach the data so when we refer to columns, rows and data we can do so
+ by invoking 
+\begin_inset Quotes eld
+\end_inset
+
+texting
+\begin_inset Quotes erd
+\end_inset
+
+ as opposed to its full path.
+\end_layout
+
+\begin_layout Standard
+We are now ready to explore the data set through graphs to familiarize with
+ trends and prepare for running regressions.
+\end_layout
+
+\begin_layout Section
+Display Data
+\end_layout
+
+\begin_layout Standard
+To check distributions and practice with histograms, we are plotting different
+ data points and inferring what we can from each one.
+\end_layout
+
+\begin_layout Standard
+This histogram plots the 
+\emph on
+Male
+\emph default
+ frequency distribution and gives it its title.
+ It confirms 
+\emph on
+Male
+\emph default
+ is binary, with all values either being 0 or 1.
+ We learn this data set has about 20 females and 40 males, a 1:2 ratio.
+ See the Appendix, Figure 3.1.
+\end_layout
+
+\begin_layout Standard
+Applying similar code, we examine the 
+\emph on
+Texts_class
+\emph default
+ distribution graph.
+ Make sure the x-axis breaks at 50 so the histogram focuses on where we
+ have the highest frequency of texts per class.
+ Most subjects send up to 10 texts per class, but there are definitely a
+ significant number of students who send more.
+ See the Appendix, Figure 3.2.
+\end_layout
+
+\begin_layout Standard
+Again, we create the 
+\emph on
+GPA
+\emph default
+ distribution graph and break it at 50.
+ Most studends have a GPA of 3.0 or higher, but there are a significant number
+ with lower GPAs.
+ This is a similar trend as with 
+\emph on
+Texts_class
+\emph default
+.
+ See the Appendix, Figure 3.3.
+\end_layout
+
+\begin_layout Standard
+Lastly, plot 
+\emph on
+GPA
+\emph default
+ against 
+\emph on
+Texts_class
+\emph default
+ to better understand their relationship.
+ There is clearly a decrease in GPA when texts per class increases, or a
+ seemingly negative correlation.
+ To test this, run a regression.
+\end_layout
+
+\begin_layout Section
+Run Basic Regression
+\end_layout
+
+\begin_layout Standard
+Regress 
+\emph on
+Texts_class
+\emph default
+ onto 
+\emph on
+GPA
+\emph default
+.
+ Looking at the regression's summary statistics.
+ [Go over estimates/equation, std.
+ error, t-value, Pr(>|t|), p-value, etc.]
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+There is a negative correlation between sent texts per class and GPA.
+ This makes sense, as being distracted during class would likely cause your
+ grades to decrease.
+\end_layout
+
+\begin_layout Standard
+This exercise was a great introduction into using LyX, performing basic
+ econometric functions in R Studio, and setting a standard format for my
+ portfolio of projects.
+ From here, I can strongly move forward with homework assignments and papers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "1_texting_survey/1_texting_survey"
+options "plainnat"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Graphs
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/alenamclucas/plot_cm_embed-4.png
+	lyxscale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/alenamclucas/plot_cm_embed.png
+	lyxscale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+R Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+### Section 2 ###
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+texting <- read.csv(file="/Users/alenamclucas/Dropbox/ECON/104(Dobkin) /Data/1_te
+xting_survey/texting_survey.csv",head=TRUE,sep=",")
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+attach(texting)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+### Section 3 ###
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+hist(Male,main = "Figure 3.1 - Male Distribution")
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+hist(Texts_class,breaks = 50,main = "Figure 3.2 - Texts per Class Distribution")
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+hist(GPA,breaks = 50,main = "Figure 3.3 - GPA Distribution")
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+plot(Texts_class,GPA,pch=21,bg="blue",xlab="Texts per Class",ylab="GPA for
+ Quarter",main="Correlation Between Texting and GPA")
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+### Section 4 ###
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+reg1 <- lm(GPA ~ Texts_class)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+summary(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+reg1_f <- predict(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+lines(Texts_class,reg1_f)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
