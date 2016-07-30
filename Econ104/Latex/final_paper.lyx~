@@ -124,11 +124,10 @@ How much does the MLDA reduce the proportion of the population that drinks?
 
 \begin_layout Standard
 The government regularly collects data to monitor the health of the United
- States, and the NHIS is one of the most polls of information.
+ States, and the NHIS is one of the most reputable polls of information.
  Calculations derived from these surveys are used to make statistics that
  are nationally applicable.
- There is has been no information given about how the mortality data was
- collected.
+ There has been no information given about how the mortality data was collected.
 \end_layout
 
 \begin_layout Standard
@@ -136,7 +135,7 @@ The method we used to interpret the jump in data at 21 years of age is regressio
 n discontinuity, which is comprised of two main components: regression tables
  and figures.
  Drinking alcohol, all deaths, motor vehicle accidents, and alcohol-related
- deaths data was used in linear, quadratic, and cubic regressions.
+ deaths data were used in linear, quadratic, and cubic regressions.
  We ran second regressions with a birthday variable on each of these regressions
  to trace the MLDA’s affects.
  The figures were made by trial-and-error methods, plugging in different
@@ -226,7 +225,7 @@ Figures are important because they help the data tell a story by focusing
  we see the sharp incline from 18 to 19 or the steady, slight decline that
  persists after turning 21 until 30 years of age.
  Lastly, the y-axis is automatically selected by R to fit the data best.
- We coded them anyways for clarity’s sake, making them 0.45 to 0.75 for the
+ It is coded anyways for clarity’s sake, making them 0.45 to 0.75 for the
  NHIS data, 85 to 110 for all deaths, 25 to 40 for motor vehicle accidents,
  and 0.0 to 3.0 for alcohol poisoning.
  A line from each regression found below was constructed for a visual comparison
@@ -295,13 +294,12 @@ The equations for the linear, quadratic, and cubic regressions are as follows,
 \end_layout
 
 \begin_layout Standard
-Linear: drinks alcohol = β¬¬0 + β1from21 + β2over21 + β3from21*over21 +
- u
+Linear: drinks alcohol = β0 + β1from21 + β2over21 + β3from21*over21 + u
 \end_layout
 
 \begin_layout Standard
-Quadratic: drinks alcohol = β¬¬0 + β1from21 + β2over21 + β3from21*over21
- + β4from21*from21 + β5from21*from21*over21 + u
+Quadratic: drinks alcohol = β0 + β1from21 + β2over21 + β3from21*over21 +
+ β4from21*from21 + β5from21*from21*over21 + u
 \end_layout
 
 \begin_layout Standard
@@ -481,6 +479,36 @@ The t-statistics for the birthday effects are below 2.00 for all deaths and
  However, the t-statistics for alcohol poisoning are 4.17, 4.15, and 2.9.
  This means that the birthday effect is significant, which makes sense because
  it is the first day a person can legally drink.
+\end_layout
+
+\begin_layout Subsection
+IV Estimate
+\end_layout
+
+\begin_layout Standard
+The important part of this paper is proved by the IV estimate because it
+ will tell us the additional deaths per 100,000 people at the MLDA for all
+ deaths.
+ As we have chosen quadratic regressions for both the NHIS data and all
+ deaths, those are the regressions that must be plugged into the equations
+ and code.
+\end_layout
+
+\begin_layout Standard
+Plugging in the quadratic equations, 47.35 is the IV estimate with a standard
+ error of 10.08.
+ Dividing them, we get 47.35 / 10.08 = 4.70.
+ A t-statistic this high means that it is unlikely these results occurred
+ by chance and are fairly accurate.
+ This means that, for every 100,000 people, about 47 less people will die
+ on their 21st birthday.
+ However, we must take caution because this IV estimate was calculated with
+ all deaths.
+ This would include deaths that occurred for other reasons but were included
+ in the data set (i.e.
+ Homicide, Suicide, Drugs, Other External Causes, etc).
+ 47 less deaths are about the true treatment effect of the MLDA on mortality
+ per 100,000 people.
  
 \end_layout
 
@@ -489,16 +517,40 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-There is a negative correlation between sent texts per class and GPA.
- This makes sense, as being distracted during class would likely cause your
- grades to decrease.
+In order to check if our IV method was justified, we must test the assumptions
+ to see if they hold.
+ The SUTVA assumption was violated in this study, as people who are drunk
+ can cause the mortality of those that are not drunk.
+ The ignorable assignment assumption is not violated because assignment
+ is base purely on age.
+ The exclusion restriction assumption is not violated because actions taken
+ that affect mortality cannot be changed, and the assignment has a direct
+ effect on treatment exposure which has a direct effect on outcome.
+ The nonzero average causal effect of assignment on action is not violated
+ because there is a causal effect of assignment on exposure.
+ Lastly, the monotonicity assumption is violated because people who are
+ below 21 do drink, and people above 21 do not drink by choice or for health
+ reasons.
+ This means that our overall results should only be taken into consideration
+ under these pretenses and contexts.
 \end_layout
 
 \begin_layout Standard
-This exercise was a great introduction into using LyX, performing basic
- econometric functions in R Studio, and setting a standard format for my
- portfolio of projects.
- From here, I can strongly move forward with homework assignments and papers.
+How much does the MLDA reduce the proportion of the population that drinks?
+ We find that the MLDA reduces drinking by about 9.55%, and the birthday
+ effect is not significant.
+ How much does the MLDA reduce mortality? The decrease in all deaths, motor
+ vehicle accidents, and alcohol poisoning are 9.55, 4.35, and 0.44, respectively.
+ The birthday affect is significant for alcohol poisoning.
+ What is the IV estimate, and do the IV assumptions validate or invalidate
+ the use of the IV estimate? The IV estimate is about 47, meaning that for
+ every 100,000 people, about 47 less people will die on their 21st birthday
+ with the MLDA at 21.
+ After obtaining the IV estimate, we test and find that almost all of the
+ assumptions have been met.
+ From these results, we can conclude that the drinking age should not be
+ lowered from 21 in the United States.
+ 
 \end_layout
 
 \begin_layout Standard

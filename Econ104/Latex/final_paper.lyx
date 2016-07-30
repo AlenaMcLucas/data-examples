@@ -124,11 +124,10 @@ How much does the MLDA reduce the proportion of the population that drinks?
 
 \begin_layout Standard
 The government regularly collects data to monitor the health of the United
- States, and the NHIS is one of the most polls of information.
+ States, and the NHIS is one of the most reputable polls of information.
  Calculations derived from these surveys are used to make statistics that
  are nationally applicable.
- There is has been no information given about how the mortality data was
- collected.
+ There has been no information given about how the mortality data was collected.
 \end_layout
 
 \begin_layout Standard
@@ -136,7 +135,7 @@ The method we used to interpret the jump in data at 21 years of age is regressio
 n discontinuity, which is comprised of two main components: regression tables
  and figures.
  Drinking alcohol, all deaths, motor vehicle accidents, and alcohol-related
- deaths data was used in linear, quadratic, and cubic regressions.
+ deaths data were used in linear, quadratic, and cubic regressions.
  We ran second regressions with a birthday variable on each of these regressions
  to trace the MLDA’s affects.
  The figures were made by trial-and-error methods, plugging in different
@@ -193,18 +192,19 @@ Methods
 
 \begin_layout Standard
 Regression Discontinuity (RD) Design makes comparisons by leveraging changes
- in treatment exposure probability.
- It allows the slope of a line to change at the threshold, where treatment
- probability changes, of the forcing variable age.
+ in treatment exposure.
+ It allows the slope of a regression line to change at the threshold where
+ treatment probability changes, also know as the forcing variable.
  MLDA is a prime example, as the government tells people that they can or
- cannot drink based on age and will choose their treatment status.
+ cannot drink based on age and thereby chooses their treatment status.
  The jump before and after 21 for percentage of people that drink and number
  of people that die is immediately noticeable when one looks at the plotted
  data, which is ideal for regression discontinuity.
- The two components to this approach are: (1) Figures, and (2) Regressions.
- We will also calculate the Instrumental Variable estimate to find the true
- treatment effect, and examine the assumptions under which it is a valid
- measure.
+ Examining both figures and regression tables will determine the regressions
+ of best fit.
+ To account for the potential birthday affect, we will calculate the Instrumenta
+l Variable estimate to determine the true treatment effect and examine the
+ assumptions under which it is a valid measure.
 \end_layout
 
 \begin_layout Subsection
@@ -212,13 +212,13 @@ Figures
 \end_layout
 
 \begin_layout Standard
-Figures are important because they help the data tell a story by focusing
- on the pertinent portions and excluding irrelevant ones.
+Figures help the data tell a story by focusing on the pertinent portions
+ and excluding irrelevant ones.
  In order to find the right bin size, x-axis range and y-axis range we use
  trial-and error as well as past experience to select the best values.
  We must first pick an appropriate bin size, which is the number of days
  that will be averaged to create one data point in the graph.
- We choose 32 as it strikes the balance between too noisy (from higher bin
+ We choose 30 as it strikes the balance between too noisy (from higher bin
  sizes) and too smooth (from lower bin sizes).
  The x-axis should focus on 21 years of age, or the threshold, so the range
  selected goes from 19 to 23.
@@ -226,9 +226,9 @@ Figures are important because they help the data tell a story by focusing
  we see the sharp incline from 18 to 19 or the steady, slight decline that
  persists after turning 21 until 30 years of age.
  Lastly, the y-axis is automatically selected by R to fit the data best.
- We coded them anyways for clarity’s sake, making them 0.45 to 0.75 for the
- NHIS data, 85 to 110 for all deaths, 25 to 40 for motor vehicle accidents,
- and 0.0 to 3.0 for alcohol poisoning.
+ It is coded anyways for clarity’s sake, making it 0.45 to 0.75 for the NHIS
+ data, 85 to 110 for all deaths, 25 to 40 for motor vehicle accidents, and
+ 0.0 to 3.0 for alcohol poisoning.
  A line from each regression found below was constructed for a visual comparison
  of each polynomial order to find the line of best fit for the data, meaning
  on average it summarizes the data the best.
@@ -295,13 +295,12 @@ The equations for the linear, quadratic, and cubic regressions are as follows,
 \end_layout
 
 \begin_layout Standard
-Linear: drinks alcohol = β¬¬0 + β1from21 + β2over21 + β3from21*over21 +
- u
+Linear: drinks alcohol = β0 + β1from21 + β2over21 + β3from21*over21 + u
 \end_layout
 
 \begin_layout Standard
-Quadratic: drinks alcohol = β¬¬0 + β1from21 + β2over21 + β3from21*over21
- + β4from21*from21 + β5from21*from21*over21 + u
+Quadratic: drinks alcohol = β0 + β1from21 + β2over21 + β3from21*over21 +
+ β4from21*from21 + β5from21*from21*over21 + u
 \end_layout
 
 \begin_layout Standard
